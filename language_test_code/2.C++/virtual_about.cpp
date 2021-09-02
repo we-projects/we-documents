@@ -24,6 +24,20 @@ public:
 typedef void (*vfunc)(void);
 
 
+class Empty_test {
+};
+
+class Empty_test_sun : public Empty_test {
+public: 
+    virtual void vfunc_test();
+};
+
+
+
+
+
+
+
 Animal::Animal(int New_Name) : CName(New_Name) {
 };
 
@@ -33,6 +47,10 @@ void Animal::output_test() {
 
 int Animal::get_cname() {
     return this->CName;
+}
+
+void Empty_test_sun::vfunc_test() {
+    
 }
 
 int main() {
@@ -60,6 +78,15 @@ int main() {
     /* 通过地址调用 Animal::output_test() */
     std::cout << "by address call Animal::output_test() : " << std::endl;
     (*vfunc_anim)();
+
+
+    /* 
+     * 空类系列测试
+     */
+
+    std::cout << "sizeof(Empty_test) == " << sizeof(Empty_test) << std::endl;
+    std::cout << "sizeof(Empty_test_sun) == " << sizeof(Empty_test_sun) << std::endl;
+
 
     return 0;
 }
